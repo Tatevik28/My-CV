@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+}
+
+#image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('matematik.jpg');
+    background-size: cover;  
+    background-position: right;
+}
+
+.about {
+    color: rgb(184, 253, 238);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.photo {
+    width: 170px;
+    height: 170px;
+}
+
+#cv-content {
+    width: 50%;
+    background-image: url('cv-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-bottom-left-radius: -10px;
+}
+
+.notes {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    height: 30%;
+}
+
+.note {
+    background-image: url('texture.jpg');
+    border-radius: 20px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(78, 99, 90);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 35px;
+}
+
+.note:hover {
+    transform: translate(0, -5%);
+    transition: 0.7s; 
+    cursor: pointer;
+}
+
+.close {
+    color: #aaaaaa;
+    font-size: 28px;
+	font-weight: bold;
+	padding-left: 93%;
+	padding-top: 1%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal {
+	position: absolute;
+    display: flex;
+	justify-content: center; 
+    align-items: center;    
+    flex-direction: column;                                                                                                           
+    width: 50%; 
+    height: 100%; 
+	background-color: rgb(73, 75, 73); 
+    background-color: rgba(73, 75, 73, 0.8); 
+    z-index: 1; 
+    right: 0;
+    top: 0;
+}
+
+.question {
+	display: flex;
+    align-items: center;  
+    flex-direction: column;   
+    width: 80%; 
+    height: 100px; 
+    background-color: #494b4e;
+	border-radius: 20px;
+	font-family: Arial, Helvetica, sans-serif;	
+	color: rgb(224, 212, 212);
+	font-size: 25px;
+}
