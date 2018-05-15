@@ -7,56 +7,71 @@
     let answer = document.getElementById('answer-input');
     let close = document.querySelector('.close');
     let incorrect = document.getElementById('incorrect');
+    let arr = JSON.parse(localStorage.getItem('answers')) || [];
 
     let questions = [
         {
-            question: 'One',
-            answer: 'One'
+            question: 'What is always coming, but never arrives?',
+            answer: 'Tomorrow'
         },
         {
-            question: 'Two',
-            answer: ''
+            question: 'What can be broken, but is never held?',
+            answer: 'Promise'
         },
         {
-            question: 'Three',
-            answer: ''
+            question: 'What is it that lives if it is fed, and dies if you give it a drink?',
+            answer: 'Fire'
         },
         {
-            question: 'Four',
-            answer: ''
+            question: 'What is it that goes up, but never comes down?',
+            answer: 'Age'
         },
         {
-            question: 'Five',
-            answer: ''
+            question: 'What is it that if you have, you want to share me, and if you share, you do not have?',
+            answer: 'Secret'
         },
         {
-            question: 'Six',
-            answer: ''
+            question: 'What goes up and down, but always remains in the same place?',
+            answer: 'Stairs'
         }
     ]
 
     notes = Array.from(notes);
     notes.map(function(item, index) {
         item.addEventListener('click', function() {
-            modal.classList.add('display');
-            insertQuestion(index);
-            save.addEventListener('click', function() {
-                if (checkAnswer(index)) {
-                    removeClass();
-                    item.classList.add('correct');
-                } else {
-                    incorrect.innerText = 'Your answer is incorrect! Try again.'
-                }
-            });
-        })
+            if (!checklocalSt(index)) {
+                modal.classList.add('display');
+                insertQuestion(index);
+                save.addEventListener('click', function() {
+                    if (checkAnswer(index)) {
+                        removeClass();
+                        item.classList.add('correct');
+                    } else {
+                        incorrect.innerText = 'Your answer is incorrect! Try again.'
+                    }
+                });
+            } else {
+                item.classList.add('correct');
+            }
+        })   
     })
 
     function insertQuestion(index) {
         text.innerText = questions[index].question;
     }
 
+    function checklocalSt(index) {
+        if (arr.includes(questions[index].answer)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function checkAnswer(index) {
         if (answer.value === questions[index].answer) {
+            arr.push(answer.value);
+            localStorage.setItem('answers', JSON.stringify(arr));
             return true;
         } else {
             return false;
